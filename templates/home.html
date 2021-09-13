@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Home</h2>
+<p>Bienvenido/a, {{ username }}!</p>
+
+<h2>Transmisión de Claves</h2>
+<h3>Ingrese la dirección IP de la luminaria, la llave pública (archivo.key), Frecuencia y tipo de transmisión de la clave WIFI</h3>
+<form action="/proxyScript" method = "post" enctype = "multipart/form-data">
+    <p>Dirección IP: </p>
+    <input type="text" name="ip">
+    <p>
+    <input type=file name=file>
+    <p>Frecuencia [Hz]: </p>
+    <select name="frecuencia">
+
+      <option>7000</option>
+      <option>14000</option>
+      <option>25000</option>
+      <option>35000</option>
+      <option>43000</option>
+      <option>50000</option>
+    </select>
+    
+    <p>
+
+    Elija el modo de transmisión:
+    </p>
+    <select name="modulacion">
+
+      <option>OOK</option>
+
+      <option>FSK</option>
+    </select>
+    <input type=submit value=Ejecutar>
+</form>
+
+
+{% endblock %}
